@@ -1,0 +1,303 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROUNI</title>
+    <style>
+       body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #007bff;
+    font-family: Arial, sans-serif;
+}
+
+.header {
+    width: 100%;
+    background-color: #00bf8a;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 24px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px; /* Espaço para o header fixo */
+    text-align: center;
+}
+
+.center-image {
+    max-width: 70%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .center-image {
+        max-width: 50%;
+    }
+}
+
+@media (max-width: 480px) {
+    .center-image {
+        max-width: 70%;
+    }
+}
+
+.redirect-button {
+    display: inline-block;
+    margin: 20px auto;
+    padding: 15px 30px;
+    background-color: #00bf8a;
+    color: white;
+    border: none;
+    border-radius: -3px;
+    font-size: 18px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.redirect-button:hover {
+    background-color: #1E3E20;
+}
+
+.redirect-button::before {
+    content: '➔';
+    margin-right: 10px;
+}
+
+@keyframes pulsate {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.footer-links {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    position: fixed;
+    bottom: 10px;
+    font-size: 12px;
+    color: beige;
+}
+
+.footer-link {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    animation: zoomOut 0.5s ease-out;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 800px;
+    animation: zoomOut 0.5s ease-out;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@keyframes zoomOut {
+    from {
+        transform: scale(1.2);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .center-image {
+        max-width: 50%;
+    }
+
+    .modal-content {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .center-image {
+        max-width: 70%;
+    }
+
+    .modal-content {
+        width: 95%;
+    }
+}
+
+    </style>
+    <!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=AW-10903700484">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-10903700484');
+</script>
+</head>
+<body>
+    <div class="header">Bem-vindo(a)</div>
+    <div class="container">
+        <img src="images/logo_home.png" alt="Prouni" class="center-image">
+        <button class="redirect-button" onclick="window.location.href='./login/index.html';">ENTRAR COM GOV.BR</button>
+    </div>
+    <div class="footer-links">
+        <span class="footer-link" onclick="showModal('modal-privacy')">Política de Privacidade</span>
+        <span class="footer-link" onclick="showModal('modal-terms')">Termos de Uso</span>
+        <span class="footer-link" onclick="showModal('modal-services')">Serviços de Atendimento</span>
+    </div>
+
+    <!-- Modal de Typebot -->
+    <div id="modal-typebot" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal-typebot')">×</span>
+            <iframe src="https://app.segurooportunidade.online/meu-typebot-vtj97l8" style="border: none; width: 100%; height: 600px"></iframe>
+        </div>
+    </div>
+
+    <!-- Modal de Política de Privacidade -->
+    <div id="modal-privacy" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal-privacy')">×</span>
+            <h1>Política de Privacidade</h1>
+            <p>Protegemos sua privacidade. Veja como tratamos suas informações pessoais.</p>
+            <h2>1. Coleta de Informações</h2>
+            <p>Coletamos dados como nome, e-mail e informações de contato quando você utiliza nossos serviços.</p>
+            <h2>2. Uso das Informações</h2>
+            <p>Utilizamos seus dados para processar solicitações, personalizar serviços e enviar informações relevantes.</p>
+            <h2>3. Compartilhamento de Informações</h2>
+            <p>Não compartilhamos suas informações com terceiros, exceto conforme necessário ou permitido por lei.</p>
+            <h2>4. Cookies</h2>
+            <p>Usamos cookies para melhorar a experiência do usuário. Você pode gerenciar cookies nas configurações do navegador.</p>
+            <h2>5. Segurança</h2>
+            <p>Adotamos medidas para proteger suas informações contra acesso não autorizado.</p>
+            <h2>6. Direitos dos Usuários</h2>
+            <p>Você pode acessar, corrigir ou solicitar a exclusão de suas informações. Entre em contato conosco para mais detalhes.</p>
+            <p>Última atualização: [Inserir data]</p>
+        </div>
+    </div>
+
+    <!-- Modal de Termos de Uso -->
+    <div id="modal-terms" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal-terms')">×</span>
+            <h1>Termos de Uso</h1>
+            <p>Esses termos regem o uso de nossos serviços. Leia atentamente.</p>
+            <h2>1. Aceitação dos Termos</h2>
+            <p>Ao acessar nosso site, você concorda com estes termos. Se não concordar, não utilize nossos serviços.</p>
+            <h2>2. Uso do Serviço</h2>
+            <p>Use nosso serviço de acordo com a lei e nossos termos.</p>
+            <h2>3. Propriedade Intelectual</h2>
+            <p>Todo conteúdo do site é de nossa propriedade ou licenciado para nós.</p>
+            <h2>4. Limitação de Responsabilidade</h2>
+            <p>Não somos responsáveis por danos diretos ou indiretos decorrentes do uso de nossos serviços.</p>
+            <h2>5. Rescisão</h2>
+            <p>Podemos encerrar ou suspender seu acesso ao serviço a qualquer momento, sem aviso prévio, se você violar estes termos.</p>
+            <h2>6. Cadastro e Contas</h2>
+            <p>Você pode precisar criar uma conta para acessar determinados serviços. É sua responsabilidade manter a confidencialidade das credenciais de login.</p>
+            <h2>7. Conteúdo do Usuário</h2>
+            <p>Você é responsável pelo conteúdo que publica em nosso site. Não toleramos conteúdos que violem direitos autorais, sejam ofensivos ou ilegais.</p>
+            <h2>8. Alterações nos Termos</h2>
+            <p>Podemos atualizar os termos a qualquer momento. Informaremos sobre alterações significativas e recomendamos revisar os termos periodicamente.</p>
+            <h2>9. Jurisdição</h2>
+            <p>Estes termos são regidos pelas leis do Brasil. Quaisquer disputas serão resolvidas nos tribunais de nossa jurisdição.</p>
+            <h2>10. Disposições Gerais</h2>
+            <p>Se qualquer parte destes termos for considerada inválida, o restante continuará em vigor. Nossos direitos sob estes termos podem ser transferidos sem aviso prévio.</p>
+            <p>Última atualização: [Inserir data]</p>
+        </div>
+    </div>
+
+    <!-- Modal de Serviços de Atendimento -->
+    <div id="modal-services" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal-services')">×</span>
+            <h1>Serviços de Atendimento</h1>
+            <p>Oferecemos suporte completo para atender suas necessidades. Confira nossos serviços.</p>
+            <h2>1. Suporte por Chat</h2>
+            <p>Fale conosco via chat ao vivo. Clique no botão acima para iniciar.</p>
+            <h2>2. Suporte por Telefone</h2>
+            <p>Contate-nos por telefone durante nosso horário de atendimento.</p>
+            <h2>3. Atendimento por E-mail</h2>
+            <p>Envie suas perguntas por e-mail. Respondemos rapidamente.</p>
+            <h2>4. Central de Ajuda</h2>
+            <p>Visite nossa central de ajuda para respostas a perguntas frequentes.</p>
+            <h2>5. Consultoria Personalizada</h2>
+            <p>Oferecemos consultoria personalizada para atender necessidades específicas de nossos clientes.</p>
+            <h2>6. Suporte Técnico</h2>
+            <p>Nossa equipe de suporte técnico está disponível para resolver problemas e fornecer assistência técnica.</p>
+            <h2>7. Feedback e Sugestões</h2>
+            <p>Valorizamos o feedback de nossos clientes. Envie sugestões para melhorar nossos serviços.</p>
+            <h2>8. Atendimento Presencial</h2>
+            <p>Para questões que necessitam de atendimento presencial, agende uma visita com um de nossos representantes.</p>
+            <p>Última atualização: [Inserir data]</p>
+        </div>
+    </div>
+
+    <script>
+       function showModal(id) {
+    document.getElementById(id).style.display = "block";
+}
+
+function closeModal(id) {
+    document.getElementById(id).style.display = "none";
+}
+
+// Close the modal when clicking anywhere outside of the modal content
+window.onclick = function(event) {
+    var modals = document.getElementsByClassName('modal');
+    for (var i = 0; i < modals.length; i++) {
+        if (event.target == modals[i]) {
+            modals[i].style.display = "none";
+        }
+    }
+}
+
+    </script>
+ 
+
+
+</body></html>
